@@ -6,4 +6,9 @@ class Race
     @office = office
     @candidates = []
   end
+
+  def register_candidate!(candidate)
+    @candidates << candidate
+    candidate
+  end
 end
