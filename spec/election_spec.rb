@@ -23,4 +23,24 @@ RSpec.describe Election do
       expect(@election1.races).to eq([])
     end
   end
+
+  describe 'add_race(race) method' do
+    it 'adds a race to the election' do
+      @election1.add_race(@race)
+      expect(@election1.races).to eq([@race])
+    end
+
+    it 'checks election data' do
+      @election1.add_race(@race)
+      expect(@election1.candidates(@election1)).to eq([@candidate1, @candidate2])
+    end
+  end
+
+  describe 'vote_counts method' do
+    it 'checks votes' do
+      @election1.add_race(@race)
+      require 'pry'; binding.pry
+      expect(@election1.vote_counts(@election1)).to eq({"Diana D" => 0, "Roberto R" => 0})
+    end
+  end
 end
