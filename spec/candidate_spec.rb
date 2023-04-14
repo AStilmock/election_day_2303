@@ -17,4 +17,16 @@ RSpec.describe Candidate do
       expect(@diana.votes).to eq(0)
     end
   end
+
+  describe 'voting_for! method' do
+    it 'adds votes to candidate' do
+      @diana.vote_for!
+      @diana.vote_for!
+      @diana.vote_for!
+      expect(@diana.votes).to eq(3)
+
+      @diana.vote_for!
+      expect(@diana.votes).to eq(4)
+    end
+  end
 end
